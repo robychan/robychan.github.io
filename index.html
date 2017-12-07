@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"> </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+	$( document ).ready(function() {
+	
+		var sceneEl = document.querySelector('a-scene');
+		var entity = sceneEl.querySelector('a-entity');
+		var colMod = entity.querySelector('a-collada-model');
+		//var colMod = sceneEl.querySelector('a-image');
+
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+		
+		var modelSrc="https://aframe.io/aframe/examples/assets/models/tree1/tree1.dae"
+		
+		$("#testButton").click(function(e) {
+		
+			alert("Hey")
+			colMod.setAttribute('src', "https://aframe.io/aframe/examples/assets/models/tree1/tree1.dae");
+			//document.getElementById("theImage").src="http://31.media.tumblr.com/fca646cd8fe87906e605ad7e8d039903/tumblr_mmoz4fWT6U1soh1p8o1_500.png"
+			//document.getElementById("tree").src="https://aframe.io/aframe/examples/assets/models/tree1/tree1.dae";
+		});
+	});
+
+    </script>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+	<style>
+
+.testContainer {
+    width: 450px;
+    overflow: auto;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+
+
+
+		<a-scene embedded arjs>
+		<a-assets>
+			<a-asset-item id="tree" src="https://raw.githubusercontent.com/robychan/robychan.github.io/master/test.dae"></a-asset-item>
+		</a-assets>
+	  
+	  
+			<a-marker preset="hiro">
+
+			
+				<a-entity position="0 0.2 0" rotation="-90 0 0">
+					<a-collada-model src="#tree" scale=".5 .5 .5">
+					</a-collada-model>
+				</a-entity>
+		
+		<!--
+
+			<a-image id="theImage" src="http://31.media.tumblr.com/18b5f8f0a00ad01e50f7ae2f513be52d/tumblr_msqcl4iwM01soh1p8o1_500.png">
+			</a-image>
+-->
+				
+				
+				
+			</a-marker>
+			<a-entity camera></a-entity>
+		</a-scene>
+		
+			<div id="page-content-wrapper" style="top: 0.01%;">
+        <div>
+            <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+        </div>
+    </div>
+    <div id="wrapper" style="opacity: 0.6;">
+
+        <div id="sidebar-wrapper" style="top: 0.01%; position: absolute;">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                        Start Bootstrap
+                </li>
+                <li>
+                    <a href="#" id="testButton">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <!-- /#wrapper -->
+
+
+
+</body>
+
+</html>

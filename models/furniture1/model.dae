@@ -786,10 +786,10 @@
     </library_effects>
     <library_images>
         <image id="ID22">
-            <init_from>model/Oak_American_White_seamless.jpg</init_from>
+            <init_from>Oak_American_White_seamless.jpg</init_from>
         </image>
         <image id="ID41">
-            <init_from>model/Oak_American_White_seamless_horiz.jpg</init_from>
+            <init_from>Oak_American_White_seamless_horiz.jpg</init_from>
         </image>
     </library_images>
     <scene>

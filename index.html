@@ -21,7 +21,7 @@
 		
 		
 		$(".testButton").click(function(e) {
-			var va=JSON.parse($(this).attr('scaleValue');
+			var va=JSON.parse($(this).attr('scaleValue'));
 			colMod.setAttribute('src', ($(this).attr('value')));
 			colMod.setAttribute('scale', {x: va.x, y: va.y, z: va.z});
 		});

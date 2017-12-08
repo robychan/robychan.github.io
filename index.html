@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+<script src="js/hammer-jquery.js"></script>
 <script src="js/aframe.min.js"></script>
 <script src="js/aframe-ar.js"> </script>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Menu Toggle Script -->
     <script>
 	$( document ).ready(function() {
@@ -23,6 +24,19 @@
 			var va=JSON.parse($this).attr('scaleValue');
 			colMod.setAttribute('src', ($(this).attr('value')));
 			colMod.setAttribute('scale', {x: va.x, y: va.y, z: va.z});
+		});
+		
+		//Handles Rotation
+		$(document.body).hammer({domEvents:true}).bind('panup pandown panleft panright', '.a-canvas', function(e){
+			var pos = document.querySelector('#TDmodel').getAttribute('rotation')
+			
+			console.log(pos.x+","+pos.y+","+pos.z)
+				var pos = document.querySelector('#TDmodel').getAttribute('rotation')
+
+				if(e.gesture!=null){
+					console.log(e.gesture.deltaX+" "+e.gesture.deltaY);
+						colMod.setAttribute('rotation', {x: (e.gesture.deltaY%360)+pos.x, y: (e.gesture.deltaX%360)+pos.y, z: pos.z});
+				}
 		});
 	});
     </script>

@@ -19,6 +19,11 @@
 			$("#wrapper").toggleClass("toggled");
 		});
 		
+		$("#XPOheading").click(function(e) {
+			e.preventDefault();
+			document.querySelector('#TDmodel').setAttribute('visible', "false")
+		});
+		
 		
 		$(".testButton").click(function(e) {
 			var va=JSON.parse($(this).attr('scaleValue'));
@@ -83,7 +88,7 @@
             		<ul class="sidebar-nav">
                 		<li class="sidebar-brand">
 					<hr>
-					<h3><b style="color:red"> XPO</b><b style="opacity:1; color:white"> Logistics</b></h3>
+					<h3 id="XPOheading"><b style="color:red"> XPO</b><b style="opacity:1; color:white"> Logistics</b></h3>
                			</li>
                 		<li>
                     			<a href="#"><img src="models/furniture1/Oak_American_White_seamless_horiz.jpg" alt="furniture1" class="testButton" style"height:66%;width:66%;opacity:1;" value="models/furniture1/model.dae" scaleValue='{"x":1,"y":1,"z":1}'/></a>

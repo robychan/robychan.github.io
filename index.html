@@ -36,7 +36,9 @@
 		
 		//Handles Rotation
 		$(document.body).hammer({domEvents:true}).bind('panup pandown panleft panright', '.a-canvas', function(e){
+			console.log(gesture_action)
 			var pos = document.querySelector('#TDmodel').getAttribute(gesture_action)
+			console.log(pos)
 			console.log(pos.x+","+pos.y+","+pos.z)
 				
 
@@ -81,9 +83,9 @@
 	</a-scene>		
 	<div id="page-content-wrapper" style="top: 0.01%;">
 		<div style="float: right;">
-			<button type="button" onclick="gesture_action='scale';alert(gesture_action)"><img src="models/resize.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="gesture_action='rotate';alert(gesture_action)"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="gesture_action='position';alert(gesture_action)"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="gesture_action='scale'"><img src="models/resize.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="gesture_action='rotation')"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="gesture_action='position'"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
         		<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
        		</div>
    	</div>

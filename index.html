@@ -20,9 +20,11 @@
 			$("#wrapper").toggleClass("toggled");
 		});
 		
-		function changeGesture(val) {
-    			gesture_action=val;
-		}
+		
+		$(".changeVal").click(function(e) {
+			gesture_action=($(this).attr('value'))
+		});
+		
 		$("#XPOheading").click(function(e) {
 			e.preventDefault();
 			document.querySelector('#TDmodel').setAttribute('visible', "false")
@@ -86,9 +88,9 @@
 	</a-scene>		
 	<div id="page-content-wrapper" style="top: 0.01%;">
 		<div style="float: right;">
-			<button type="button" onclick="changeGesture('scale')"><img src="models/resize.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="changeGesture('rotation')"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="changeGesture('position')"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
+			<button type="button" value="scale" class="changeVal"><img src="models/resize.png" style="width:30px; height:30px;"></button>
+			<button type="button" value="rotation" class="changeVal"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
+			<button type="button" value="position" class="changeVal"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
         		<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
        		</div>
    	</div>

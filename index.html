@@ -13,7 +13,7 @@
 		var sceneEl = document.querySelector('a-scene');
 		var entity = sceneEl.querySelector('a-entity');
 		var colMod = entity.querySelector('a-collada-model');
-
+		var gesure_action="rotate";
 		
 		$("#menu-toggle").click(function(e) {
 			e.preventDefault();
@@ -36,14 +36,13 @@
 		
 		//Handles Rotation
 		$(document.body).hammer({domEvents:true}).bind('panup pandown panleft panright', '.a-canvas', function(e){
-			var pos = document.querySelector('#TDmodel').getAttribute('rotation')
-			
+			var pos = document.querySelector('#TDmodel').getAttribute(gesure_action)
 			console.log(pos.x+","+pos.y+","+pos.z)
-				var pos = document.querySelector('#TDmodel').getAttribute('rotation')
+				
 
 				if(e.gesture!=null){
 					console.log(e.gesture.deltaX+" "+e.gesture.deltaY);
-						colMod.setAttribute('rotation', {x: (e.gesture.deltaY%360)+pos.x, y: (e.gesture.deltaX%360)+pos.y, z: pos.z});
+					colMod.setAttribute(gesure_action, {x: (e.gesture.deltaY%360)+pos.x, y: (e.gesture.deltaX%360)+pos.y, z: pos.z});
 				}
 		});
 	});
@@ -82,9 +81,9 @@
 	</a-scene>		
 	<div id="page-content-wrapper" style="top: 0.01%;">
 		<div style="float: right;">
-			<button type="button" onclick="alert('Scale')"><img src="models/resize.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="alert('Rotate')"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="alert('Position')"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="gesure_action='scale';alert('gesure_action')"><img src="models/resize.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="gesure_action='rotate';alert('gesure_action')"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="gesure_action='position';alert('gesure_action')"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
         		<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
        		</div>
    	</div>

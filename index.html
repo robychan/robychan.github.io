@@ -54,7 +54,7 @@
 					if(gesture_action=="position"){
 						colMod.setAttribute(gesture_action, {x: ((e.gesture.deltaX*scale)%360)+pos.x, y: ((e.gesture.deltaY*scale)%360)+pos.y, z: pos.z});
 					}else if(gesture_action=="rotation"){
-						colMod.setAttribute(gesture_action, {x: ((e.gesture.deltaY*scale)%360)+pos.x, y: ((e.gesture.deltaX*scale)%360)+pos.y, z: pos.z});
+						colMod.setAttribute(gesture_action, {x: ((e.gesture.deltaY*scale)%360)+pos.x, y: ((-e.gesture.deltaX*scale)%360)+pos.y, z: pos.z});
 					}
 					
 				}

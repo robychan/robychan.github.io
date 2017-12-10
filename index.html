@@ -13,13 +13,16 @@
 		var sceneEl = document.querySelector('a-scene');
 		var entity = sceneEl.querySelector('a-entity');
 		var colMod = entity.querySelector('a-collada-model');
-		var gesture_action="rotate";
+		var gesture_action="rotation";
 		
 		$("#menu-toggle").click(function(e) {
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
 		});
 		
+		function changeGesture(val) {
+    			gesture_action=val;
+		}
 		$("#XPOheading").click(function(e) {
 			e.preventDefault();
 			document.querySelector('#TDmodel').setAttribute('visible', "false")
@@ -83,9 +86,9 @@
 	</a-scene>		
 	<div id="page-content-wrapper" style="top: 0.01%;">
 		<div style="float: right;">
-			<button type="button" onclick="gesture_action='scale'"><img src="models/resize.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="gesture_action='rotation'"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
-			<button type="button" onclick="gesture_action='position'"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="changeGesture('scale')"><img src="models/resize.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="changeGesture('rotation')"><img src="models/rotatepic.png" style="width:30px; height:30px;"></button>
+			<button type="button" onclick="changeGesture('position')"><img src="models/positionpic.png" style="width:30px; height:30px;"></button>
         		<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
        		</div>
    	</div>

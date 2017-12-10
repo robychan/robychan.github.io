@@ -43,16 +43,20 @@
 		$(document.body).hammer({domEvents:true}).bind('panup pandown panleft panright', '.a-canvas', function(e){
 			var scale=0.5
 			if(gesture_action=="position"){
-				scale=0.1
+				scale=0.01
 			}
 			var pos = document.querySelector('#TDmodel').getAttribute(gesture_action)
-			console.log(pos)
 			console.log(pos.x+","+pos.y+","+pos.z)
 				
 
 				if(e.gesture!=null){
 					console.log(e.gesture.deltaX+" "+e.gesture.deltaY);
-					colMod.setAttribute(gesture_action, {x: ((e.gesture.deltaY*scale)%360)+pos.x, y: ((e.gesture.deltaX*scale)%360)+pos.y, z: pos.z});
+					if(gesture_action=="position"){
+						colMod.setAttribute(gesture_action, {x: ((e.gesture.deltaX*scale)%360)+pos.x, y: ((e.gesture.deltaY*scale)%360)+pos.y, z: pos.z});
+					}else if(gesture_action=="rotation"){
+						colMod.setAttribute(gesture_action, {x: ((e.gesture.deltaY*scale)%360)+pos.x, y: ((e.gesture.deltaX*scale)%360)+pos.y, z: pos.z});
+					}
+					
 				}
 		});
 	});
